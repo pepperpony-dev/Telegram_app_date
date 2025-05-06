@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Цель знакомства — Time to Meet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #2c003e, #0d001a);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+    }
+
+    .progress {
+      width: 90%;
+      height: 6px;
+      background: #3a003c;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 100%;
+      background: #ff4db8;
+      border-radius: 4px;
+    }
+
+    h2 {
+      font-size: 22px;
+      color: #ff4db8;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #e2d3f9;
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 14px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .option.selected {
+      border-color: #ff4db8;
+      background: #2a0030;
+    }
+
+    .option img {
+      width: 26px;
+      height: 26px;
+    }
+
+    .option span {
+      font-size: 16px;
+    }
+
+    .button {
+      margin-top: 30px;
+      background-color: #ff4db8;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 77, 184, 0.5);
+      width: 100%;
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress"><div class="progress-bar"></div></div>
+
+  <h2>Для чего вы здесь?</h2>
+  <p>Вы можете изменить выбор в любой момент</p>
+
+  <div class="options" id="options">
+    <div class="option" data-value="dates">
+      <img src="public/icons/coffee.svg" alt="Свидания">
+      <span>Свидания</span>
+    </div>
+    <div class="option" data-value="relationship">
+      <img src="public/icons/heart.svg" alt="Отношения">
+      <span>Отношения</span>
+    </div>
+    <div class="option" data-value="friendship">
+      <img src="public/icons/users.svg" alt="Дружба">
+      <span>Дружба</span>
+    </div>
+    <div class="option" data-value="chat">
+      <img src="public/icons/chat.svg" alt="Общение без конкретики">
+      <span>Общение без конкретики</span>
+    </div>
+    <div class="option" data-value="travel">
+      <img src="public/icons/travel.svg" alt="Путешествия вдвоем">
+      <span>Путешествовать вдвоем</span>
+    </div>
+    <div class="option" data-value="soulmate">
+      <img src="public/icons/soulmate.svg" alt="Родственная душа">
+      <span>Ищу родственную душу</span>
+    </div>
+  </div>
+
+  <button class="button" onclick="goNext()">Далее</button>
+
+  <script>
+    const selected = new Set();
+    document.querySelectorAll('.option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        opt.classList.toggle('selected');
+        const value = opt.dataset.value;
+        if (selected.has(value)) selected.delete(value);
+        else selected.add(value);
+      });
+    });
+
+    function goNext() {
+      if (selected.size === 0) {
+        alert('Выберите хотя бы один вариант');
+        return;
+      }
+      localStorage.setItem('purpose', JSON.stringify(Array.from(selected)));
+      window.location.href = 'profile_complete.html';
+    }
+  </script>
+
+</body>
+</html>
 

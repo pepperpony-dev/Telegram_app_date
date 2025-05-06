@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Селфи — Time to Meet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #2c003e, #0d001a);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .progress {
+      width: 90%;
+      height: 6px;
+      background: #3a003c;
+      border-radius: 4px;
+      margin-top: 30px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 83%;
+      background: #ff4db8;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+
+    h2 {
+      margin-top: 50px;
+      font-size: 24px;
+      color: #ff4db8;
+      text-shadow: 0 0 10px rgba(255, 77, 184, 0.5);
+    }
+
+    p {
+      color: #e2d3f9;
+      font-size: 14px;
+      margin: 10px 0 30px;
+      padding: 0 30px;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .photo-label {
+      background: rgba(255, 77, 184, 0.1);
+      border: 2px dashed #ff4db8;
+      padding: 50px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .photo-label:hover {
+      background: rgba(255, 77, 184, 0.2);
+    }
+
+    .button {
+      background-color: #ff4db8;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 77, 184, 0.5);
+      margin-top: 30px;
+    }
+
+    .preview {
+      margin-top: 20px;
+      max-width: 150px;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+
+  <h2>Загрузите своё селфи</h2>
+  <p>Это фото будет использоваться для верификации профиля</p>
+
+  <label class="photo-label" for="selfieInput">📷 Нажмите, чтобы загрузить</label>
+  <input type="file" accept="image/*" id="selfieInput" onchange="previewPhoto(event)" />
+
+  <img id="preview" class="preview" style="display:none;" />
+
+  <button class="button" onclick="goNext()">Далее</button>
+
+  <script>
+    function previewPhoto(event) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        const img = document.getElementById("preview");
+        img.src = reader.result;
+        img.style.display = "block";
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+
+    function goNext() {
+      const file = document.getElementById("selfieInput").files[0];
+      if (!file) {
+        alert("Пожалуйста, загрузите своё селфи");
+        return;
+      }
+      // Можно временно сохранить статус
+      localStorage.setItem("hasSelfie", "true");
+      window.location.href = "upload_gallery.html";
+    }
+  </script>
+</body>
+</html>
 

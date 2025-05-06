@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Пол — Time to Meet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #2c003e, #0d001a);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .progress {
+      width: 90%;
+      height: 6px;
+      background: #3a003c;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 50%;
+      background: #ff4db8;
+      border-radius: 4px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #ff4db8;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .group {
+      margin-bottom: 30px;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #e2d3f9;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      background-color: #1a1a1a;
+      color: white;
+    }
+
+    button {
+      background-color: #ff4db8;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 77, 184, 0.5);
+      margin-top: 30px;
+      width: 100%;
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+
+  <h2>Пол и интересы</h2>
+
+  <div class="group">
+    <label for="gender">Ваш пол</label>
+    <select id="gender">
+      <option value="">Выбрать</option>
+      <option value="male">Мужской</option>
+      <option value="female">Женский</option>
+      <option value="other">Другое</option>
+    </select>
+  </div>
+
+  <div class="group">
+    <label for="lookingFor">Кого ищете?</label>
+    <select id="lookingFor">
+      <option value="">Выбрать</option>
+      <option value="female">Женщин</option>
+      <option value="male">Мужчин</option>
+      <option value="all">Всех</option>
+    </select>
+  </div>
+
+  <button onclick="goNext()">Далее</button>
+
+  <script>
+    function goNext() {
+      const gender = document.getElementById('gender').value;
+      const looking = document.getElementById('lookingFor').value;
+
+      if (!gender || !looking) {
+        alert('Пожалуйста, заполните оба поля');
+        return;
+      }
+
+      localStorage.setItem('gender', gender);
+      localStorage.setItem('lookingFor', looking);
+
+      window.location.href = 'location.html';
+    }
+  </script>
+
+</body>
+</html>
 

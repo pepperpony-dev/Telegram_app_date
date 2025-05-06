@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time to Meet — Профиль</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #ff4da6;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    input, select {
+      background-color: #1a1a1a;
+      color: white;
+    }
+
+    button {
+      background: #ff4da6;
+      color: white;
+      margin-top: 30px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #ff66b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Заполни профиль</h1>
+
+  <form action="photos.html" method="GET">
+    <label for="name">Имя</label>
+    <input type="text" id="name" name="name" placeholder="Введите имя" required />
+
+    <label for="age">Возраст</label>
+    <input type="number" id="age" name="age" min="18" placeholder="Ваш возраст" required />
+
+    <label for="gender">Ваш пол</label>
+    <select id="gender" name="gender">
+      <option value="male">Мужской</option>
+      <option value="female">Женский</option>
+      <option value="other">Другое</option>
+    </select>
+
+    <label for="lookingFor">Кого ищете?</label>
+    <select id="lookingFor" name="lookingFor">
+      <option value="female">Женщин</option>
+      <option value="male">Мужчин</option>
+      <option value="all">Всех</option>
+    </select>
+
+    <label for="location">Город / Локация</label>
+    <input type="text" id="location" name="location" placeholder="Москва, СПБ и т.п." required />
+
+    <button type="submit">Далее</button>
+  </form>
+
+</body>
+</html>
 

@@ -88,13 +88,17 @@
   <button class="button" onclick="goNext()">Далее</button>
 
   <script>
-    function goNext() {
-      const date = document.getElementById("birthdate").value;
-      if (!date) {
-        alert("Пожалуйста, выбери дату рождения");
-        return;
-      }
-      // здесь можно временно сохранить в localStorage
-      localStorage.setItem("birthdate", date);
-      window.loc
+  function goNext() {
+    const date = document.getElementById("birthdate").value;
+    if (!date) {
+      alert("Пожалуйста, выбери дату рождения");
+      return;
+    }
 
+    // Сохраняем дату рождения
+    localStorage.setItem("birthdate", date);
+
+    // Переход на следующий экран
+    window.location.href = "gender.html";
+  }
+</script>

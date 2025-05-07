@@ -1,1 +1,85 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Анкета завершена — Time to Meet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #2c003e, #0d001a);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .check-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid #ff4db8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(255, 77, 184, 0.5);
+    }
+
+    .check-icon::before {
+      content: "✓";
+      font-size: 36px;
+      color: #ff4db8;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #ff4db8;
+      text-shadow: 0 0 10px rgba(255, 77, 184, 0.6);
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #e2d3f9;
+    }
+
+    .button {
+      margin-top: 40px;
+      background-color: #ff4db8;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 40px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 77, 184, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="check-icon"></div>
+  <h1>Анкета завершена!</h1>
+  <p>Ты готов знакомиться 💕</p>
+
+  <button class="button" onclick="goToMain()">Начать</button>
+
+  <script>
+    function goToMain() {
+      // Пока что заглушка — можно сделать редирект на index.html или future_swipe.html
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
